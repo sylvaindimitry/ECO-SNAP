@@ -1,0 +1,88 @@
+
+    body {
+      height: 100vh;
+      margin: 0;
+      background: url('Photos/tof2.jpg') no-repeat center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .glass-card {
+      width: 100%;
+      max-width: 380px;
+      padding: 35px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .form-control {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+      padding-left: 40px;
+      transition: 0.3s;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .form-control:focus {
+      border-color: #00c6ff;
+      box-shadow: 0 0 10px rgba(0,198,255,0.5);
+      background: transparent;
+      color: white;
+    }
+
+    .input-group-text {
+      background: transparent;
+      border: none;
+      color: white;
+      position: absolute;
+      z-index: 10;
+      margin-top: 8px;
+      margin-left: 10px;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .btn-custom {
+      background: linear-gradient(to right, #399c04, #02531d);
+      border: none;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 576px) {
+      .glass-card {
+        padding: 25px;
+      }
+    }
+  

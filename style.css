@@ -1,0 +1,101 @@
+body {
+  padding-top: 70px;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(14, 102, 6, 0.7)),
+              url(Photos/tof10.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+/* Cards hover */
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+/* Assure que la hero est une référence */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Positionnement du bouton */
+.hero-btn-container {
+  position: absolute;
+  top: 92%; /* moitié basse */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 15px; 
+}
+
+.pulse-btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 30px;
+  animation: pulse 2s infinite;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Animation battement */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 12px rgba(40, 167, 69, 0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.form-section {
+  display: none;
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: 20px;
+}
+#ecoCarousel {
+  height: 300px;
+}
+#ecoCarousel .carousel-item {
+  height: 100%;
+}
+#ecoCarousel .carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+/* gestion manuel du responsif*/
+@media(max-width:768px){
+  .hero{
+    height: auto;
+    padding: 100px 0;
+    text-align: center;
+  }
+
+  .hero-btn-container {
+  position: absolute;
+  top: 45%; 
+  left: 50%;
+  padding: 0 15px; 
+}
+}

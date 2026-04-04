@@ -1,0 +1,69 @@
+
+    body {
+        /* Image de background */
+        background-image: url('Photos/tof2.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .glass-card {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 400px;
+        color: #fff;
+    }
+
+    .glass-card input {
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        color: #fff;
+    }
+
+    .glass-card input::placeholder {
+        color: #e0e0e0;
+    }
+
+    .glass-card input:focus {
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+        box-shadow: none;
+    }
+
+    /*.btn-glass {
+        background: rgba(129, 10, 10, 0.25);
+        color: #fff;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .btn-glass:hover {
+        background: rgba(255, 255, 255, 0.4);
+    }*/
+    .btn-glass {
+    background-color: rgba(40, 167, 69, 0.8) !important; 
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.btn-glass:hover {
+    background-color: rgb(34, 163, 64) !important; 
+    color: #fff !important;
+}
+
+    @media (max-width: 576px) {
+        .glass-card {
+            padding: 1.5rem;
+        }
+    }
