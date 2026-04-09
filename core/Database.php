@@ -9,8 +9,9 @@ class Database {
     
     private function __construct() {
         $config = require __DIR__ . '/../config/config.php';
-        
-        $dsn = "mysql:host={$config['db_host']};dbname={$config['db_name']};charset={$config['db_charset']}";
+
+        $port = $config['db_port'] ?? 3306;
+        $dsn = "mysql:host={$config['db_host']};port={$port};dbname={$config['db_name']};charset={$config['db_charset']}";
         
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

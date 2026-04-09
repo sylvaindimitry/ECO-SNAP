@@ -1,0 +1,40 @@
+databases:
+  - name: ecosnap-db
+    databaseName: ecosnap_mvc
+    user: ecosnap_user
+    plan: free
+
+services:
+  - type: web
+    name: ecosnap
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_HOST
+        fromDatabase:
+          name: ecosnap-db
+          property: host
+      - key: DATABASE_USER
+        fromDatabase:
+          name: ecosnap-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: ecosnap-db
+          property: password
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: ecosnap-db
+          property: database
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: ecosnap-db
+          property: port
+      - key: APP_URL
+        fromService:
+          type: web
+          name: ecosnap
+          property: host
+      - key: APP_DEBUG
+        value: "false"
