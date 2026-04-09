@@ -1,0 +1,14 @@
+{
+  "name": "ecosnap",
+  "description": "ECO-SNAP - Gestion des signalements de dépôts d'ordures",
+  "type": "project",
+  "require": {
+    "php": ">=7.4",
+    "ext-pdo": "*",
+    "ext-mysqli": "*",
+    "ext-json": "*"
+  },
+  "scripts": {
+    "post-deploy": "echo 'Deployment complete'"
+  }
+}
