@@ -4,7 +4,7 @@ body {
 
 /* HERO */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(14, 102, 6, 0.7)),
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(14, 102, 6, 0.7)),
               url(Photos/tof10.jpg);
   background-size: cover;
   background-position: center;
