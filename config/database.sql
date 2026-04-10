@@ -12,6 +12,11 @@ CREATE TABLE users (
     email VARCHAR(150) UNIQUE NOT NULL,
     telephone VARCHAR(20),
     password VARCHAR(255) NOT NULL,
+    email_verified BOOLEAN DEFAULT FALSE,
+    verification_token VARCHAR(255) NULL,
+    google_id VARCHAR(255) NULL,
+    remember_token VARCHAR(255) NULL,
+    last_login TIMESTAMP NULL,
     role ENUM('habitant', 'chauffeur', 'admin') DEFAULT 'habitant',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

@@ -22,6 +22,8 @@ require_once __DIR__ . '/core/Database.php';
 require_once __DIR__ . '/core/Model.php';
 require_once __DIR__ . '/core/Controller.php';
 require_once __DIR__ . '/core/Router.php';
+require_once __DIR__ . '/core/CSRF.php';
+require_once __DIR__ . '/core/Email.php';
 
 // Créer le routeur
 $router = new Router($config['app_url']);
@@ -41,6 +43,14 @@ $router->post('/login', 'AuthController@login');
 $router->get('/register', 'AuthController@showRegister');
 $router->post('/register', 'AuthController@register');
 $router->get('/logout', 'AuthController@logout');
+
+// Google OAuth
+$router->get('/auth/google', 'AuthController@googleLogin');
+$router->get('/auth/google/callback', 'AuthController@googleCallback');
+
+// Vérification email
+$router->get('/verify-email', 'AuthController@verifyEmail');
+$router->post('/auth/resend-verification', 'AuthController@resendVerification');
 
 // Dashboard
 $router->get('/dashboard', 'HomeController@dashboard');

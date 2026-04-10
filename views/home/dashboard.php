@@ -1,7 +1,46 @@
-<?php 
+<?php
 $pageTitle = 'Dashboard - ECO-SNAP';
-ob_start(); 
+ob_start();
 ?>
+
+<!-- Welcome Modal (affiche seulement au premier login) -->
+<?php if (isset($_SESSION['show_welcome']) && $_SESSION['show_welcome']): ?>
+    <?php unset($_SESSION['show_welcome']); ?>
+    <div class="modal fade" id="welcomeModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-success text-white border-0">
+                    <h5 class="modal-title">
+                        <i class="bi bi-emoji-smile"></i> Bienvenue <?= htmlspecialchars($_SESSION['user_first_name'] ?? 'Utilisateur') ?> !
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Connexion réussie !</h4>
+                    <p class="text-muted mb-3">
+                        Bonjour <strong><?= htmlspecialchars($_SESSION['user_name'] ?? 'Utilisateur') ?></strong>,<br>
+                        Vous êtes maintenant connecté à votre espace ECO-SNAP.
+                    </p>
+                    <div class="row text-start mt-3">
+                        <div class="col-12">
+                            <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i> Signalez des dépôts d'ordures</p>
+                            <p class="mb-2"><i class="bi bi-bell text-warning me-2"></i> Recevez des notifications en temps réel</p>
+                            <p class="mb-0"><i class="bi bi-graph-up text-success me-2"></i> Suivez l'évolution de vos signalements</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-success px-4" data-bs-dismiss="modal">
+                        <i class="bi bi-arrow-right-circle"></i> Commencer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
 
 <div class="container-fluid py-4">
     <div class="row">
@@ -179,7 +218,17 @@ ob_start();
     </div>
 </div>
 
-<?php 
+<!-- Auto-open welcome modal -->
+<?php if (isset($_SESSION['show_welcome']) && $_SESSION['show_welcome']): ?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+    welcomeModal.show();
+});
+</script>
+<?php endif; ?>
+
+<?php
 $content = ob_get_clean();
-require __DIR__ . '/../layout.php'; 
+require __DIR__ . '/../layout.php';
 ?>
